@@ -13,7 +13,7 @@ public class InitiativeTracker implements GloomInitiativeTracker {
 		//I don't think I have to do anything other than just... make it exist
 		//so there's that
 		//yay?
-		this.addCombatant("End of Round", 100);
+		//this.addCombatant("End of Round", 100);
 		//bc that is a useful way to do the thing I think
 	}
 
@@ -23,7 +23,11 @@ public class InitiativeTracker implements GloomInitiativeTracker {
 		//else
 		Combatant comb = new Combatant(nam, ini);
 		combatList.add(comb);
-		Collections.sort(combatList, new sortByInitiative());
+		System.out.println(combatList);
+		if (combatList.size() > 2) {
+			Collections.sort(combatList, Collections.reverseOrder(new sortByInitiative()));
+			
+		}
 	}
 
 	public Combatant getNextCombatant() {

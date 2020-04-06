@@ -14,4 +14,7 @@ public class Combatant {
 		return this.name;
 		
 	}
+	public String toString() {
+		return this.name;
+	}
 }
