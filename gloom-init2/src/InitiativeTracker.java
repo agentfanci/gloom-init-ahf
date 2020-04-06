@@ -3,31 +3,26 @@ import java.util.*;
 
 public class InitiativeTracker implements GloomInitiativeTracker {
 	
-	//git still hasn't noticed that I've been changing this file?? but like whatever I guess
-	//okay how do I make an instance variable again-
-	//what do I want it to be? I want it to be a thing that is Easily Sortable
-	private LinkedList<Combatant> combatList;
+	public LinkedList<Combatant> combatList;
 	
 	public InitiativeTracker(){
-		//so that's for the constructor
-		//I don't think I have to do anything other than just... make it exist
-		//so there's that
-		//yay?
-		//this.addCombatant("End of Round", 100);
-		//bc that is a useful way to do the thing I think
+		this.combatList = new LinkedList<Combatant>();
+		System.out.println("The thing exists, probably");
 	}
 
 	
 	public void addCombatant(String nam, int ini) {
 		//if Scenario contains Combatant with name==nam, that.initiative = ini, combatList.add(that combatant)
 		//else
+		System.out.println(nam);
 		Combatant comb = new Combatant(nam, ini);
+		System.out.println(comb);
 		combatList.add(comb);
 		System.out.println(combatList);
-		if (combatList.size() > 2) {
-			Collections.sort(combatList, Collections.reverseOrder(new sortByInitiative()));
+		//if (combatList.size() > 2) {
+			//Collections.sort(combatList, Collections.reverseOrder(new sortByInitiative()));
 			
-		}
+		//}
 	}
 
 	public Combatant getNextCombatant() {
@@ -38,5 +33,7 @@ public class InitiativeTracker implements GloomInitiativeTracker {
 		return nc; //return the object- this is to enable more complicated things later
 		
 	}
+	
+	
 	
 }

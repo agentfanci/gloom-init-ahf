@@ -6,12 +6,21 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 class GloomInitiativeTrackerTest {
-	private GloomInitiativeTracker g;
+	public GloomInitiativeTracker g;
+	
+	
 	
 	@Before
 	public void setup() {
 		g = new InitiativeTracker();
 	}
+	
+	@Test
+	void isAnythingPrintingEverPleaseTest() {
+		System.out.println("Help pls");
+	}
+	
+	
 	@Test
 	void compareTest() {
 		Combatant a = new Combatant("Anna", 10);
