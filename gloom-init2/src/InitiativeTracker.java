@@ -3,11 +3,18 @@ import java.util.*;
 
 public class InitiativeTracker implements GloomInitiativeTracker {
 	
-	public LinkedList<Combatant> combatList;
+	//Linked list of Combatant classes
+	private LinkedList<Combatant> combatList;
+	//Linked bc more adding & removing than getting from an index
+	//Collections.sort supposedly works on it
+	//Allows for more complicated Combatant classes in the future
+	
 	
 	public InitiativeTracker(){
 		this.combatList = new LinkedList<Combatant>();
-		System.out.println("The thing exists, probably");
+		Combatant ender = new Combatant("End of Round", 100);
+		combatList.add(ender);
+		System.out.println(this.combatList);
 	}
 
 	
@@ -19,10 +26,10 @@ public class InitiativeTracker implements GloomInitiativeTracker {
 		System.out.println(comb);
 		combatList.add(comb);
 		System.out.println(combatList);
-		//if (combatList.size() > 2) {
-			//Collections.sort(combatList, Collections.reverseOrder(new sortByInitiative()));
+		if (combatList.size() > 1) {
+			Collections.sort(combatList, Collections.reverseOrder(new sortByInitiative()));
 			
-		//}
+		}
 	}
 
 	public Combatant getNextCombatant() {
@@ -34,6 +41,9 @@ public class InitiativeTracker implements GloomInitiativeTracker {
 		
 	}
 	
+	public String toString() {
+		return combatList.toString();
+	}
 	
 	
 }

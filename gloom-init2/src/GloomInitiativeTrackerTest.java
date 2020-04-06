@@ -12,19 +12,35 @@ class GloomInitiativeTrackerTest {
 	
 	@Before
 	public void setup() {
-		g = new InitiativeTracker();
+		GloomInitiativeTracker g = new InitiativeTracker();
+		
+	}
+	
+	@Test
+	public void constructorTest() {
+		GloomInitiativeTracker track = new InitiativeTracker();
+		System.out.println(track);
+	}
+	
+	@Test
+	public void testingTest() {
+		GloomInitiativeTracker g = new InitiativeTracker();
+		
+		System.out.println("Test test: " + g);
 	}
 	
 	@Test
 	void isAnythingPrintingEverPleaseTest() {
-		System.out.println("Help pls");
+		System.out.println("Print Test");
 	}
 	
 	
 	@Test
 	void compareTest() {
-		Combatant a = new Combatant("Anna", 10);
+		Combatant a = new Combatant("Annabell", 10);
 		Combatant b = new Combatant("Ben", 45);
+		//System.out.println(a);
+		//System.out.println(a.getInitiative());
 		Comparator<Combatant> com = new sortByInitiative();
 		com.compare(a, b);
 		assertEquals(-35, com.compare(a, b));
@@ -32,13 +48,17 @@ class GloomInitiativeTrackerTest {
 	
 	@Test
 	void addingTest() {
+		GloomInitiativeTracker g = new InitiativeTracker();
 		g.addCombatant("Anna", 10);
 	}
 	
 	@Test
 	void gettingTest() {
-		g.addCombatant("Anna", 10);
-		assertEquals("Anna", g.getNextCombatant().getName());
+		GloomInitiativeTracker g = new InitiativeTracker();
+		g.addCombatant("Marsha", 11);
+		System.out.println(g);
+		System.out.println(g.getNextCombatant().getName());
+		assertEquals("Marsha", g.getNextCombatant().getName());
 	}
 	
 	@Test
@@ -49,9 +69,11 @@ class GloomInitiativeTrackerTest {
 	
 	@Test
 	void reorderingTest() {
+		GloomInitiativeTracker g = new InitiativeTracker();
 		g.addCombatant("Anna", 10);
 		g.addCombatant("Daniel", 50);
 		g.addCombatant("Carter", 22);
+		System.out.println(g);
 		assertEquals("Anna", g.getNextCombatant().getName());
 		assertEquals("Carter", g.getNextCombatant().getName());
 		assertEquals("Daniel", g.getNextCombatant().getName());
