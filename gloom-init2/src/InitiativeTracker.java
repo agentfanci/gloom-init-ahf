@@ -14,30 +14,28 @@ public class InitiativeTracker implements GloomInitiativeTracker {
 		this.combatList = new LinkedList<Combatant>();
 		Combatant ender = new Combatant("End of Round", 100);
 		combatList.add(ender);
-		System.out.println(this.combatList);
+		//System.out.println(this.combatList);
 	}
 
 	
 	public void addCombatant(String nam, int ini) {
-		//if Scenario contains Combatant with name==nam, that.initiative = ini, combatList.add(that combatant)
+		//for more complex one: if Scenario contains Combatant with name==nam, that.initiative = ini, combatList.add(that combatant)
 		//else
-		System.out.println(nam);
 		Combatant comb = new Combatant(nam, ini);
-		System.out.println(comb);
+		System.out.println("Adding: " + comb);
 		combatList.add(comb);
-		System.out.println(combatList);
-		if (combatList.size() > 1) {
-			Collections.sort(combatList, Collections.reverseOrder(new sortByInitiative()));
-			
-		}
+			Collections.sort(combatList, new sortByInitiative());
 	}
 
 	public Combatant getNextCombatant() {
-		Combatant nc = combatList.getFirst(); //which combatant is it
-		String n = nc.getName();
-		System.out.println(n); //print the name
-		combatList.removeFirst(); //remove this combatant from the list
-		return nc; //return the object- this is to enable more complicated things later
+		if(combatList.size()>0){
+			Combatant nc = combatList.getFirst(); //which combatant is it
+			String n = nc.getName();
+			System.out.println("Next combatant is: " + n); //print the name
+			combatList.removeFirst(); //remove this combatant from the list
+			return nc; //return the object- this is to enable more complicated things later
+		}
+		else return new Combatant("End of Round", 100);
 		
 	}
 	

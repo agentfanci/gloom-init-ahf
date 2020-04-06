@@ -13,7 +13,7 @@ class GloomInitiativeTrackerTest {
 	@Before
 	public void setup() {
 		GloomInitiativeTracker g = new InitiativeTracker();
-		
+		//apparently this didnt' work. Why, I don't know, but it sure didnt' so I just made a new one for each test
 	}
 	
 	@Test
@@ -56,8 +56,6 @@ class GloomInitiativeTrackerTest {
 	void gettingTest() {
 		GloomInitiativeTracker g = new InitiativeTracker();
 		g.addCombatant("Marsha", 11);
-		System.out.println(g);
-		System.out.println(g.getNextCombatant().getName());
 		assertEquals("Marsha", g.getNextCombatant().getName());
 	}
 	
@@ -73,10 +71,17 @@ class GloomInitiativeTrackerTest {
 		g.addCombatant("Anna", 10);
 		g.addCombatant("Daniel", 50);
 		g.addCombatant("Carter", 22);
-		System.out.println(g);
+		//System.out.println(g);
 		assertEquals("Anna", g.getNextCombatant().getName());
 		assertEquals("Carter", g.getNextCombatant().getName());
 		assertEquals("Daniel", g.getNextCombatant().getName());
+	}
+	
+	@Test
+	void goTooFarTest() {
+		GloomInitiativeTracker g = new InitiativeTracker();
+		g.getNextCombatant();
+		g.getNextCombatant();
 	}
 
 }
